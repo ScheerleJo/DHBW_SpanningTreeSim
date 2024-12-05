@@ -20,6 +20,7 @@ public class Node {
     }
     public List<Edge> getEdges() { return edges; }
     public String getName() { return name; }
+    public Boolean isRoot() { return root; }
 
     public static Node getElementByName(String name, List<Node> list){
         for(Node item : list) {
@@ -53,6 +54,6 @@ public class Node {
         offers.clear();
     }
     public void printNextHop() {
-        System.out.println(name + "->" + accepted.getSource()  + ", Cost to Root: " + accepted.getTotalCost() + (root? ": Root" : ""));
+        System.out.println("\t" + name + "-" + accepted.getSource());
     }
 }

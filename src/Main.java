@@ -1,10 +1,13 @@
 import java.io.IOException;
+import java.util.Comparator;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) throws IOException {
+
+//      Read the given Network from input.txt
         Input input = new Input();
-        input.readInputFile();
+        String graphName = input.readInputFile();
 
 //      Creating the SpanningTree
         List<Node> nodes = input.createSpanningTree();
@@ -17,6 +20,16 @@ public class Main {
         }
 
 //      Print Output
+        nodes.sort(Comparator.comparing(node -> node.getName()));
+        System.out.println("Spanning-Tree of " + graphName + " {");
+        for (Node node : nodes) {
+            if(node.isRoot()) {
+                System.out.println("\tRoot: " + node.getName());
+                nodes.remove(node);
+                break;
+            }
+        }
         for (Node node : nodes) node.printNextHop();
+        System.out.println("}");
     }
 }
