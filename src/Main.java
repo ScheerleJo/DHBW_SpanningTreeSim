@@ -10,7 +10,7 @@ public class Main {
         String graphName = input.readInputFile();
 
 //      Creating the SpanningTree
-        List<Node> nodes = input.createSpanningTree();
+        List<Node> nodes = input.getSpanningTree();
 
 //      Running SpanningTree Sim
         for (int i = 1; i <= nodes.size(); i++) {
@@ -20,7 +20,7 @@ public class Main {
         }
 
 //      Print Output
-        nodes.sort(Comparator.comparing(node -> node.getName()));
+        nodes.sort(Comparator.comparing(Node::getName));
         System.out.println("Spanning-Tree of " + graphName + " {");
         for (Node node : nodes) {
             if(node.isRoot()) {
