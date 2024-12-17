@@ -9,7 +9,7 @@ public class Input {
     List<Edge> edges = new ArrayList<>();
 
     public String readInputFile() throws IOException {
-        File file = new File("./src/input.txt");
+        File file = new File("input.txt");
         if (!file.exists()) throw new Error("Input file does not exist");
         BufferedReader br = new BufferedReader(new FileReader(file));
 
